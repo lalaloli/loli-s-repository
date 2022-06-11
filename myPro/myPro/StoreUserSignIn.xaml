@@ -1,0 +1,39 @@
+﻿<Window x:Class="myPro.StoreUserSignIn"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:myPro"
+        mc:Ignorable="d"
+        Title="StoreUserSignIn" Height="350" Width="600">
+    <Grid>
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="220,82,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" VerticalContentAlignment="Center">
+            <TextBox.Resources>
+                <VisualBrush x:Key="UserName" TileMode="None" Opacity="0.3" Stretch="None" AlignmentX="Left" >
+                    <VisualBrush.Visual>
+                        <TextBlock FontStyle="Italic" Text="请输入邮箱或员工号"></TextBlock>
+                    </VisualBrush.Visual>
+                </VisualBrush>
+            </TextBox.Resources>
+            <TextBox.Style>
+                <Style TargetType="TextBox">
+                    <Style.Triggers>
+                        <Trigger Property="Text" Value="{x:Null}">
+                            <Setter Property="Background" Value="{StaticResource UserName}"/>
+                        </Trigger>
+                        <Trigger Property="Text" Value="">
+                            <Setter Property="Background" Value="{StaticResource UserName}"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+        <Label Content="账号：" HorizontalAlignment="Left" Margin="155,80,0,0" VerticalAlignment="Top" Height="30" Width="50" FontSize="15"/>
+        <Label Content="密码：" HorizontalAlignment="Left" Margin="156,151,0,0" VerticalAlignment="Top" FontSize="15"/>
+
+        <Button Content="登录" HorizontalAlignment="Left" Margin="165,230,0,0" VerticalAlignment="Top" Width="75" Height="30" Background="LightBlue"/>
+        <Button Content="返回" HorizontalAlignment="Left" Margin="350,230,0,0" VerticalAlignment="Top" Width="75" Height="30" Background="LightBlue" VerticalContentAlignment="Center"/>
+        <PasswordBox HorizontalAlignment="Left" Margin="220,150,0,0" VerticalAlignment="Top" Width="200" Height="28"/>
+        <TextBlock HorizontalAlignment="Left" Margin="180,30,0,0" TextWrapping="Wrap" Text="欢迎使用！祝您工作愉快" VerticalAlignment="Top" Width="235" Height="35" FontSize="20" />
+    </Grid>
+</Window>

@@ -13,3 +13,13 @@ C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\myPro.csproj.GenerateResou
 C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\myPro.csproj.CoreCompileInputs.cache
 C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\myPro.exe
 C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\myPro.pdb
+C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\SignUpWindow.g.cs
+C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\SignUpWindow.baml
+C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\StoreHouseWindow.g.cs
+C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\StoreUserSignIn.g.cs
+C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\StoreHouseWindow.baml
+C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\StoreUserSignIn.baml
+C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\ManagerSignIn.g.cs
+C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\StorageUSerSignIn.g.cs
+C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\ManagerSignIn.baml
+C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\StorageUSerSignIn.baml
