@@ -45,8 +45,12 @@ namespace myPro
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            StorageUSerSignIn storageUSerSignIn = new StorageUSerSignIn();
-            storageUSerSignIn.Show();
+              StorageUSerSignIn storageUSerSignIn = new StorageUSerSignIn();
+              storageUSerSignIn.Show();
+            //test test = new test();
+            // test.Show();
+          // StoreHouseWindow storeHouseWindow = new StoreHouseWindow();
+          // storeHouseWindow.Show();
         }
     }
 }

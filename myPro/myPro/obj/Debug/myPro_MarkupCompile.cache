@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\machenike\source\repos\myPro\myPro\App.xaml
-62135478258
+1158488362
 
-102050557388
-131569487696
-MainWindow.xaml;ManagerSignIn.xaml;SignUpWindow.xaml;StorageUSerSignIn.xaml;StoreHouseWindow.xaml;StoreUserSignIn.xaml;
+17246805671
+14434534373
+MainWindow.xaml;ManagerSignIn.xaml;ManagerWindow.xaml;PeopleMessageWindow.xaml;ReStoreWindow.xaml;SignUpWindow.xaml;StorageUSerSignIn.xaml;StorageWindow.xaml;StoreHouseWindow.xaml;StoreUserSignIn.xaml;test.xaml;
 
 False
 

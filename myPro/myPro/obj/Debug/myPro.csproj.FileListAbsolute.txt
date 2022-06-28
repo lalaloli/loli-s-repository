@@ -23,3 +23,14 @@ C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\ManagerSignIn.g.cs
 C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\StorageUSerSignIn.g.cs
 C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\ManagerSignIn.baml
 C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\StorageUSerSignIn.baml
+C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\test.g.cs
+C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\test.baml
+C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\ReStoreWindow.g.cs
+C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\ReStoreWindow.baml
+C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\PeopleMessageWindow.g.cs
+C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\PeopleMessageWindow.baml
+C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\StorageWindow.g.cs
+C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\StorageWindow.baml
+C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\ManagerWindow.g.cs
+C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\ManagerWindow.baml
