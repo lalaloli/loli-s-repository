@@ -28,7 +28,7 @@ namespace myPro
         public void ConnClose(SqlConnection conn)
         {
             conn.Close();
-            MessageBox.Show("数据库已连接现在已断开！");
+            //MessageBox.Show("数据库已连接现在已断开！");
             return;
         }
 
@@ -43,9 +43,35 @@ namespace myPro
             {
                 StoreGoods goods = new StoreGoods();
 
-                goods.Name = reader["name"].ToString();
-                goods.num = reader["num"].ToString();
-                goods.count = reader["count"].ToString();
+                goods.Name = reader["name"].ToString(); 
+                goods.num = reader["num"].ToString().Split(' ').FirstOrDefault(); 
+                goods.count = reader["count"].ToString(); 
+                goods.storagecount = reader["Storagecount"].ToString();
+                
+                long len = reader.GetBytes(reader.GetOrdinal("picture"), 0, null, 0, 0);
+                byte[] pic = new byte[len];
+                len = reader.GetBytes(reader.GetOrdinal("picture"), 0, pic, 0, (int)len);
+                Pic bitpic = new Pic();
+                goods.Img = bitpic.ByteArrayToBitmapImage(pic);
+                goodss.Add(goods);
+            }
+            return goodss;
+        }
+
+        public List<StoreGoods> GetStorageGoods(SqlConnection conn)
+        {
+            List<StoreGoods> goodss = new List<StoreGoods>();
+
+            string sql = "select * from goods ;";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                StoreGoods goods = new StoreGoods();
+
+                goods.Name = reader["name"].ToString().Split(' ').FirstOrDefault(); 
+                goods.num = reader["num"].ToString().Split(' ').FirstOrDefault(); 
+                goods.count = reader["Storagecount"].ToString().Split(' ').FirstOrDefault(); 
 
 
                 long len = reader.GetBytes(reader.GetOrdinal("picture"), 0, null, 0, 0);
@@ -70,8 +96,9 @@ namespace myPro
                 User user = new User();
 
                 user.Name = reader["name"].ToString();
-            //    user.num = reader["num"].ToString();
-             //   user.count = reader["count"].ToString();
+                user.UserJob = reader["job"].ToString();
+                //    user.num = reader["num"].ToString();
+                //   user.count = reader["count"].ToString();
 
 
                 long len = reader.GetBytes(reader.GetOrdinal("headpic"), 0, null, 0, 0);
@@ -84,9 +111,9 @@ namespace myPro
             return users;
         }
 
-        public void AddGood(SqlConnection conn, BitmapImage picture, String name, String num, int count)
+        public void AddGood(SqlConnection conn, BitmapImage picture, String name, String num, int count, int scount)
         {
-            String sql = "insert into goods (num,name,picture,count) values(" + num + " ," + "'" + name + "'" + " ,@Pic," + count + ");";
+            String sql = "insert into goods (num,name,picture,count,Storagecount) values(" + num + " ," + "'" + name + "'" + " ,@Pic," + count + ","+ scount +");";
             Pic p = new Pic();
             byte[] BP = p.BitmapImageToByteArray(picture);
 
@@ -109,7 +136,7 @@ namespace myPro
             }
             else
             {
-                sql = "insert into user (number,name,headpic,mail,pword,job) values(" + num + " ," + "'" + name + "'" + " ,@Pic," + "'" + mail + "'" + "," + "'" + password + "'" + "," + "," + "'" + job + "'" + ");";
+                sql = "insert into myuser (number,name,headpic,mail,pword,job) values(" + num + " ," + "'" + name + "'" + " ,@Pic," + "'" + mail + "'" + "," + "'" + password + "'" + "," + "'" + job + "'" + ");";
                 Pic p = new Pic();
                 byte[] BP = p.BitmapImageToByteArray(picture);
 
@@ -134,10 +161,11 @@ namespace myPro
             cmd.ExecuteNonQuery();
         }
 
-        public  String FindUser(SqlConnection conn, String ID)
+        public  User FindUser(SqlConnection conn, String ID)
         {
-            String password = "";
-            String sql = "select pword from myuser where mail =" + "'" + ID + "'" + ";";
+            User user = new User();
+            
+            String sql = "select * from myuser where mail =" + "'" + ID + "'" + ";";
 
             SqlCommand cmd = new SqlCommand(sql, conn);
             SqlDataReader reader = cmd.ExecuteReader();
@@ -145,8 +173,9 @@ namespace myPro
                 if (reader.HasRows)
                 {
                     reader.Read();
-                    password = reader["pword"].ToString();
-                }
+                    user.PassWord = reader["pword"].ToString().Split(' ').FirstOrDefault(); ;
+                    user.UserJob  = reader["job"].ToString().Split(' ').FirstOrDefault(); ;
+            }
                 else
                 {
                     MessageBox.Show("用户名或密码错误！");
@@ -154,8 +183,29 @@ namespace myPro
             
             reader.Close();
             
-            return password;
+            return user;
         }//密码判定
+
+        public bool FindUserTrueOrNot(SqlConnection conn, String ID)
+        {
+            User user = new User();
+
+            String sql = "select * from myuser where mail =" + "'" + ID + "'" + ";";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+ 
+        } //判断邮箱是否已存在
 
         public User FindUserMessage(SqlConnection conn, String ID)
         {
@@ -171,6 +221,7 @@ namespace myPro
                     reader.Read();
                     user.Name = reader["Name"].ToString().Split(' ').FirstOrDefault();
                     user.UserNumber = reader["number"].ToString().Split(' ').FirstOrDefault();
+                    user.UserMail = reader["mail"].ToString().Split(' ').FirstOrDefault();
                 try
                 {
                     long len = reader.GetBytes(reader.GetOrdinal("headpic"), 0, null, 0, 0);
@@ -208,7 +259,7 @@ namespace myPro
             user.UserNumber = reader["number"].ToString().Split(' ').FirstOrDefault();
             user.Name = reader["name"].ToString().Split(' ').FirstOrDefault();
             user.Age = reader["age"].ToString().Split(' ').FirstOrDefault();
-            user.UserJob = reader["job"].ToString().Split(' ').FirstOrDefault();
+            user.UserJob = reader["job"].ToString().Split(' ').FirstOrDefault(); ;
             user.UserMail = reader["mail"].ToString().Split(' ').FirstOrDefault();
             user.Tel = reader["tel"].ToString().Split(' ').FirstOrDefault();
             user.Jobage = reader["jobage"].ToString().Split(' ').FirstOrDefault();
@@ -227,6 +278,62 @@ namespace myPro
 
 
             return user;
+        }//加载个人信息
+
+        public void UpDatePW(SqlConnection conn, String mail,String pw)
+        {
+            String sql = "update myuser set pword=" + "'" + pw + "'" + "where mail=" + "'" + mail + "';";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+        }//更新密码
+
+        public StoreGoods FindGoods(SqlConnection conn,String num)
+        {
+            StoreGoods goods = new StoreGoods();
+            Pic bitpic = new Pic();
+            String sql = "select * from goods where number='{0}';";
+            sql = String.Format(sql, num);
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if(reader.HasRows)
+            {
+                reader.Read();
+                goods.Name = reader["name"].ToString();
+                goods.count = reader["count"].ToString().Split(' ').FirstOrDefault();
+                goods.num = reader["num"].ToString().Split(' ').FirstOrDefault();
+                goods.storagecount = reader["Storagecount"].ToString().Split(' ').FirstOrDefault();
+                try
+                {
+                    long len = reader.GetBytes(reader.GetOrdinal("picture"), 0, null, 0, 0);
+                    byte[] pic = new byte[len];
+                    len = reader.GetBytes(reader.GetOrdinal("picture"), 0, pic, 0, (int)len);
+
+                    goods.Img = bitpic.ByteArrayToBitmapImage(pic);
+                }
+                catch (Exception e)
+                {
+
+                }
+            }
+            else
+            {
+                goods.num = "此编号货物不存在！";
+            }
+            
+            return goods;
+        }
+
+        public void UpdateGoods(SqlConnection conn, BitmapImage picture, String name, String num, int count, int scount)
+        {
+            String sql;
+            Pic p = new Pic();
+            byte[] BP = p.BitmapImageToByteArray(picture);
+            sql = "update goods set name=" + "'" + name + "'" + ",picture=@pic,count="+ "'" + count + "'"+",Storagecount="+ "'" + scount + "'" + " where num=" + "'" + num + "'" + ";";
+
+            // sql = String.Format(sql, name, BP, tel, age, jobage,num);
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add("@Pic", SqlDbType.Image).Value = BP;
+            cmd.ExecuteNonQuery();
         }
     }
 

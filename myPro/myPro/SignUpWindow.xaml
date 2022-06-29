@@ -19,7 +19,7 @@
         <PasswordBox Name="UPassword" HorizontalAlignment="Left" Height="23" Margin="20,140,0,0" VerticalAlignment="Top" Width="205" Grid.Column="1" VerticalContentAlignment="Center"/>
         <Label Content="验证码：" HorizontalAlignment="Left" Margin="137,180,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.25,0.203" Grid.ColumnSpan="2" Height="26" Width="58"/>
         <TextBox Name="Testpass" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125" Margin="20,180,0,0" Grid.Column="1" VerticalContentAlignment="Center"/>
-        <Button Content="发送验证码" HorizontalAlignment="Left" Margin="160,176,0,0" VerticalAlignment="Top" Width="65" Height="29" Background="LightBlue" Foreground="White" Grid.Column="1" Click="Button_Click"/>
+        <Button Name="SendVerCode" Content="获取验证码" HorizontalAlignment="Left" Margin="160,176,0,0" VerticalAlignment="Top" Width="65" Height="29" Background="LightBlue" Foreground="White" Grid.Column="1" Click="Button_Click"/>
         <ComboBox Name="Userjob" HorizontalAlignment="Left" Margin="20,250,0,0" VerticalAlignment="Top" Width="135" RenderTransformOrigin="0.46,-0.01" Height="25" Grid.Column="1">
             <ComboBoxItem Content="仓库管理员"></ComboBoxItem>
             <ComboBoxItem Content="人才管理员"></ComboBoxItem>

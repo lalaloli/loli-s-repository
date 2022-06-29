@@ -27,6 +27,7 @@ namespace myPro
         public BitmapImage Img { get; set; }
         public string num { get; set; }
         public string count { get; set; }
+        public string storagecount { get; set; }
     }
 
     public partial class StoreHouseWindow : Window
@@ -34,12 +35,12 @@ namespace myPro
         public string get_userID { get => _get_userID; set => _get_userID = value; }//得到用户使用的ID
         public string pass_num;//传递用户的编号
         private string _get_userID;
-
+        List<StoreGoods> storeGoodss;
         public StoreHouseWindow(String User_ID)
         {
             get_userID = User_ID;
             InitializeComponent();
-     
+
             List<StoreGoods> storeGoods = new List<StoreGoods>();
             User user = new User();
             MySql my = new MySql();
@@ -49,19 +50,22 @@ namespace myPro
             my.ConnClose(conn);
 
             SqlConnection conn1 = my.GetConn();
-            user = my.FindUserMessage(conn1, User_ID);
+            user = my.FindUserMessage(conn1, get_userID);
             userHeadpic.Source = user.Headpic;
             User_Name.Content = user.Name;
             pass_num = user.UserNumber;
             my.ConnClose(conn1);
 
-            List<StoreGoods> storeGoodss = new List<StoreGoods>();
+            storeGoodss = new List<StoreGoods>();
             for (int i = 0; i < storeGoods.Count(); i++)
             {
 
                 StoreGoods store = new StoreGoods();
-                store.Name = storeGoods[i].Name;
+                store.Name = storeGoods[i].num + "号:" + storeGoods[i].Name;
                 store.Img = storeGoods[i].Img;
+                store.num = storeGoods[i].num;
+                store.count = storeGoods[i].count;
+                store.storagecount = storeGoods[i].storagecount;
                 storeGoodss.Add(store);
 
             }
@@ -98,7 +102,7 @@ namespace myPro
 
         private void ReStore_Click(object sender, RoutedEventArgs e)
         {
-            ReStoreWindow reStoreWindow = new ReStoreWindow();
+            ReStoreWindow reStoreWindow = new ReStoreWindow(storeGoodss);
             reStoreWindow.Show();
         }
 
@@ -111,9 +115,64 @@ namespace myPro
 
         private void Refresh_Click(object sender, RoutedEventArgs e)
         {
-            StoreHouseWindow storeHouseWindow = new StoreHouseWindow(get_userID);
-            storeHouseWindow.Show();
-            this.Close();
+            List<StoreGoods> storeGoods = new List<StoreGoods>();
+            User user = new User();
+            MySql my = new MySql();
+            SqlConnection conn = my.GetConn();
+
+            storeGoods = my.GetGoods(conn);
+            my.ConnClose(conn);
+
+            SqlConnection conn1 = my.GetConn();
+            user = my.FindUserMessage(conn1, get_userID);
+            userHeadpic.Source = user.Headpic;
+            User_Name.Content = user.Name;
+            pass_num = user.UserNumber;
+            my.ConnClose(conn1);
+
+            storeGoodss = new List<StoreGoods>();
+            for (int i = 0; i < storeGoods.Count(); i++)
+            {
+
+                StoreGoods store = new StoreGoods();
+                store.Name = storeGoods[i].num + "号:" + storeGoods[i].Name;
+                store.Img = storeGoods[i].Img;
+                store.num = storeGoods[i].num;
+                store.count = storeGoods[i].count;
+                store.storagecount = storeGoods[i].storagecount;
+                storeGoodss.Add(store);
+
+            }
+
+            listbox.ItemsSource = storeGoodss;
+        }
+
+        private void Image_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ContextMenu contextMenu = new ContextMenu();
+            MenuItem DateMenu = new MenuItem();
+            DateMenu.Header = "详细信息";
+            DateMenu.Click += showMessage;
+            ContextMenu.Items.Add(DateMenu);
+            MenuItem DeleMenu = new MenuItem();
+            DeleMenu.Header = "删除";
+            ContextMenu.Items.Add(DeleMenu);
+
+            ContextMenu.IsOpen = true;
+        }
+
+        private void showMessage(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            System.Windows.Controls.Image img = new System.Windows.Controls.Image();
+            RelativeSource rs = new RelativeSource(RelativeSourceMode.FindAncestor);
+            rs.AncestorType = typeof(ListBoxItem);
+            Binding binding = new Binding("Name") { RelativeSource = rs };
+            img.SetBinding(System.Windows.Controls.Image.BindingGroupProperty, binding);
         }
     }
 }

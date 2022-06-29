@@ -11,16 +11,16 @@
             <Label Content="仓"  Foreground="White" FontSize="80" Margin="75.2,154.2,78.8,153.4" RenderTransformOrigin="0.317,0.453"/>
         </Border>
         <Border  BorderThickness="1" HorizontalAlignment="Left" Height="120" Margin="250,0,0,0" VerticalAlignment="Top" Width="540">
-            <Button Content="仓库管理" Margin="100,20,100,10" Background="LightGreen"  Foreground="White" FontSize="35" Click="Button_Click"/>
+            <Button Content="货架管理" Margin="100,20,100,10" Background="LightGreen"  Foreground="White" FontSize="35" Click="Button_Click"/>
 
         </Border>
         <Border  BorderThickness="1" HorizontalAlignment="Left" Height="120" Margin="250,120,0,0" VerticalAlignment="Top" Width="540">
             <Button Content="人才管理" Margin="100,10,100,10" Background="LightGreen"  Foreground="White" FontSize="35" Click="Button_Click_1"/>
         </Border>
         <Border  BorderThickness="1" HorizontalAlignment="Left" Height="135" Margin="250,240,0,0" VerticalAlignment="Top" Width="540">
-            <Button Content="货台管理" Margin="100,10,100,20" Background="LightGreen" Foreground="White" FontSize="35" Click="Button_Click_2"/>
+            <Button Content="仓库管理" Margin="100,10,100,20" Background="LightGreen" Foreground="White" FontSize="35" Click="Button_Click_2"/>
         </Border>
-        <Label Content="注册" HorizontalAlignment="Left" Margin="661,375,0,0" VerticalAlignment="Top" RenderTransformOrigin="1,0.2" MouseDoubleClick="Label_MouseDoubleClick"/>
+        <Label Content="密码修改" HorizontalAlignment="Left" Margin="631,375,0,0" VerticalAlignment="Top" RenderTransformOrigin="1,0.2" MouseDoubleClick="Label_MouseDoubleClick"/>
 
     </Grid>
 </Window>

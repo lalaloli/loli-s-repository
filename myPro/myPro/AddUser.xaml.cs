@@ -18,39 +18,16 @@ using System.Windows.Shapes;
 namespace myPro
 {
     /// <summary>
-    /// PeopleMessageWindow.xaml 的交互逻辑
+    /// AddUser.xaml 的交互逻辑
     /// </summary>
-    public partial class PeopleMessageWindow : Window
+    public partial class AddUser : Window
     {
-
-        BitmapImage bitmap = null;
-        public PeopleMessageWindow(String get_userNumber)
+        public AddUser()
         {
             InitializeComponent();
-
-            MySql my = new MySql();
-            Pic p = new Pic();
-            User user = new User();
-
-            SqlConnection conn = my.GetConn();
-            user = my.GetUser(conn, get_userNumber);
-            my.ConnClose(conn);
-
-            UserName.Text = user.Name;
-            UserAge.Text = user.Age;
-            UserMail.Text = user.UserMail;
-            Tel.Text = user.Tel;
-            ID.Text = user.UserNumber;
-            Job.Text = user.UserJob;
-            JobAge.Text = user.Jobage;
-            HeadPic.Source = user.Headpic;
-           if(bitmap == null)
-            {
-                bitmap = user.Headpic;
-            }
         }
-
-        private void AddPic_Click(object sender, RoutedEventArgs e)
+        BitmapImage bitmap;
+        private void BtnAddPic_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
@@ -63,18 +40,16 @@ namespace myPro
             Bitmap map = new Bitmap(PicBitmap);
             Pic pic = new Pic();
             bitmap = pic.BitmapToBitmapImage(map);
-            HeadPic.Source = bitmap;
+            Im.Source = bitmap;
         }
 
- 
-
-        private void KeppMessage_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             MySql my = new MySql();
             SqlConnection conn = my.GetConn();
-
-            my.UpDateUser(conn,bitmap,UserName.Text,ID.Text,UserMail.Text,Job.Text, Convert.ToInt32(UserAge.Text), Convert.ToInt32(JobAge.Text), Tel.Text);
+            my.AddUser(conn, bitmap, UserName.Text, UserNum.Text, UserMail.Text, UserPW.Text, Userjob.Text);
             my.ConnClose(conn);
+            MessageBox.Show("添加成功！");
             this.Close();
         }
     }

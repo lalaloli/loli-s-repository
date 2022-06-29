@@ -6,12 +6,11 @@
         xmlns:local="clr-namespace:myPro"
         mc:Ignorable="d"
         Title="test" Height="550" Width="1000">
-    <Window.Resources>
-        <local:Users x:Key="person"></local:Users>
-    </Window.Resources>
-    <Grid DataContext="{StaticResource person}">
+
+    <Grid>
         <Border BorderBrush="#FFB2B2B2" Background="White"  Margin="180,0,-0.4,0" BorderThickness="1" >
             <Grid HorizontalAlignment="Left" Height="521" Margin="0.2,-0.8,-0.4,-1.8" VerticalAlignment="Top" Width="813"  x:Name="contentGrid">
+                
                 <ListBox  x:Name="listbox" ItemsSource="{Binding Users}"   Margin="-1,0,10,0" VerticalAlignment="Top" >
                     <ListBox.ItemTemplate>
                         <DataTemplate>

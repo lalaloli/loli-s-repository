@@ -28,25 +28,39 @@ namespace myPro
         private void SignIn_Click(object sender, RoutedEventArgs e)
         {
             MySql my = new MySql();
+            User user = new User();
             SqlConnection conn = my.GetConn();
             String Id = ID.Text;
-            string pw = my.FindUser(conn, Id);
-            pw = pw.Split(' ').FirstOrDefault();
-            if (pw == PassWord.Password)
-            { 
-
-                ManagerWindow managerWindow = new ManagerWindow(Id);
-                managerWindow.Show();
-                this.Close();
+            user = my.FindUser(conn, Id);
+            if ("人才管理员" != user.UserJob)
+            {
+                MessageBox.Show("权限不足！");
             }
             else
             {
-                MessageBox.Show("用户名或密码错误！");
+                if (user.PassWord == PassWord.Password)
+                {
+                    ManagerWindow storeHouseWindow = new ManagerWindow(Id);
+                    storeHouseWindow.get_userID = Id;
+                   // MessageBox.Show(storeHouseWindow.get_userID + "!");
+                    storeHouseWindow.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("用户名或密码错误！");
 
 
+                }
             }
 
             my.ConnClose(conn);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            SignUpWindow signUpWindow = new SignUpWindow();
+            signUpWindow.Show();
         }
     }
     

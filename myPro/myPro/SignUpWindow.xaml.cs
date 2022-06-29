@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -68,14 +69,36 @@ namespace myPro
 
     public partial class SignUpWindow : Window
     {
+        private System.Threading.Timer CountDown = null;
+
         public SignUpWindow()
         {
             InitializeComponent();
+            CountDown = new Timer(CountDown_Tick, this, Timeout.Infinite, Timeout.Infinite);
+        }
+
+        int CountDownNum = 60;
+        private void CountDown_Tick(object state)
+        {
+            //限制60秒内不能重复点击发送验证码
+            this.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                SendVerCode.Content = $"{CountDownNum}秒后重试";
+                CountDownNum--;
+                if (CountDownNum < 0)
+                {
+                    CountDown.Change(Timeout.Infinite, Timeout.Infinite);
+                    CountDownNum = 60;
+                    SendVerCode.Content = "获取验证码";
+                }
+            }));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if(Usermail.Text == "" || UserPassword.Password=="")
+
+            CountDown.Change(0, 1000);
+            if (Usermail.Text == "" || UserPassword.Password=="")
             {
                 MessageBox.Show("请输入邮箱或密码！");
             }
@@ -116,11 +139,12 @@ namespace myPro
                 }
                 catch( Exception t)
                 {
-                    MessageBox.Show(t.Message);
+                    //MessageBox.Show(t.Message);
+
                 }
                 finally
                 {
-                    MessageBox.Show("输入正确的邮箱格式！");
+                    
                 }
             }
 
@@ -138,9 +162,21 @@ namespace myPro
                 MySql my = new MySql();
                 SqlConnection conn = my.GetConn();
 
-                User user = new User(Usermail.Text, Usernumber.Text, UserPassword.Password, Userjob.Text, null, null);
-                my.AddUser(conn, null, user.Name, user.UserNumber, user.UserMail, user.PassWord, user.UserJob);
-                my.ConnClose(conn);
+                if (my.FindUserTrueOrNot(conn,Usermail.Text))
+                {
+                    MessageBox.Show("该邮箱已注册！");
+                }
+                else
+                {
+                    User user = new User(Usermail.Text, Usernumber.Text, UserPassword.Password, Userjob.Text, null, null);
+
+                    my.AddUser(conn, null, user.Name, user.UserNumber, user.UserMail, user.PassWord, user.UserJob);
+                    my.ConnClose(conn);
+                    MessageBox.Show("注册成功！");
+                    this.Close();
+                }
+
+
             }
 
 

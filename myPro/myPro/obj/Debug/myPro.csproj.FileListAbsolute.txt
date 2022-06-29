@@ -34,3 +34,7 @@ C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\StorageWindow.g.cs
 C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\StorageWindow.baml
 C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\ManagerWindow.g.cs
 C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\ManagerWindow.baml
+C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\ChangePassWord.g.cs
+C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\ChangePassWord.baml
+C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\AddUser.g.cs
+C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\AddUser.baml

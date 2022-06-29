@@ -13,7 +13,7 @@
         <Grid Name="left" HorizontalAlignment="Left" Height="420" VerticalAlignment="Top" Width="180" Background="LightGreen">
             <Image Name="userHeadpic" HorizontalAlignment="Left" Height="100" Margin="42,23,0,0" VerticalAlignment="Top" Width="100" />
             <Button Name="userMassge" Content="个人信息" HorizontalAlignment="Left" Margin="0,169,0,0" VerticalAlignment="Top" Width="180" Height="43" Background="LightGreen" BorderThickness="0" FontSize="15" Foreground="White" Click="UserMassge_Click"/>
-            <Button Content="仓库整理" HorizontalAlignment="Left" Margin="0,213,0,0" VerticalAlignment="Top" Width="180" RenderTransformOrigin="0.5,0.5" Height="43" Background="LightGreen" BorderThickness="0" FontSize="15" Foreground="White" Click="ReStore_Click">
+            <Button Content="人员管理" HorizontalAlignment="Left" Margin="0,213,0,0" VerticalAlignment="Top" Width="180" RenderTransformOrigin="0.5,0.5" Height="43" Background="LightGreen" BorderThickness="0" FontSize="15" Foreground="White" Click="ReStore_Click">
             </Button>
             <Button Content="留言提示" HorizontalAlignment="Left" Margin="0,257,0,0" VerticalAlignment="Top" Width="180" Height="43"  Background="LightGreen" BorderThickness="0"  FontSize="15" Foreground="White"/>
             <Button Content="退出" HorizontalAlignment="Left" Margin="0,349,0,0" VerticalAlignment="Top" Width="180" Height="43"  Background="LightGreen" BorderThickness="0"  FontSize="15" Foreground="White" Click="Back_Click"/>

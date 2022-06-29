@@ -27,30 +27,35 @@ namespace myPro
 
         private void Label_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            SignUpWindow signUpWindow = new SignUpWindow();
-            signUpWindow.Show();
+            // SignUpWindow signUpWindow = new SignUpWindow();
+            //signUpWindow.Show();
+            ChangePassWord changePassWord = new ChangePassWord();
+            changePassWord.Show();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             StoreUserSignIn storeUserSign = new StoreUserSignIn();
             storeUserSign.Show();
+            this.Close();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             ManagerSignIn managerSignIn = new ManagerSignIn();
             managerSignIn.Show();
+            this.Close();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
               StorageUSerSignIn storageUSerSignIn = new StorageUSerSignIn();
               storageUSerSignIn.Show();
+              this.Close();
             //test test = new test();
             // test.Show();
-          // StoreHouseWindow storeHouseWindow = new StoreHouseWindow();
-          // storeHouseWindow.Show();
+            // StoreHouseWindow storeHouseWindow = new StoreHouseWindow();
+            // storeHouseWindow.Show();
         }
     }
 }

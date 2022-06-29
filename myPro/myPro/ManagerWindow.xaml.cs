@@ -50,8 +50,9 @@ namespace myPro
             {
 
                 User nUser = new User();
-                nUser.Name = UserS[i].Name;
+                nUser.Name = UserS[i].UserJob+":"+ UserS[i].Name;
                 nUser.Headpic = UserS[i].Headpic;
+                nUser.UserJob = UserS[i].UserJob;
                 Users.Add(nUser);
 
             }
@@ -88,8 +89,8 @@ namespace myPro
 
         private void ReStore_Click(object sender, RoutedEventArgs e)
         {
-            ReStoreWindow reStoreWindow = new ReStoreWindow();
-            reStoreWindow.Show();
+            AddUser addUser = new AddUser();
+            addUser.Show();
         }
 
         private void UserMassge_Click(object sender, RoutedEventArgs e)
@@ -101,9 +102,34 @@ namespace myPro
 
         private void Refresh_Click(object sender, RoutedEventArgs e)
         {
-            StoreHouseWindow storeHouseWindow = new StoreHouseWindow(get_userID);
-            storeHouseWindow.Show();
-            this.Close();
+            List<User> UserS = new List<User>();
+            User user = new User();
+            MySql my = new MySql();
+            SqlConnection conn = my.GetConn();
+
+            UserS = my.GetUsers(conn);
+            my.ConnClose(conn);
+
+            SqlConnection conn1 = my.GetConn();
+            user = my.FindUserMessage(conn1, get_userID);
+            userHeadpic.Source = user.Headpic;
+            User_Name.Content = user.Name;
+            pass_num = user.UserNumber;
+            my.ConnClose(conn1);
+
+            List<User> Users = new List<User>();
+            for (int i = 0; i < UserS.Count(); i++)
+            {
+
+                User nUser = new User();
+                nUser.Name = UserS[i].UserJob + ":" + UserS[i].Name;
+                MessageBox.Show(UserS[i].UserJob);
+                nUser.Headpic = UserS[i].Headpic;
+                Users.Add(nUser);
+
+            }
+
+            listbox.ItemsSource = Users;
         }
     }
     

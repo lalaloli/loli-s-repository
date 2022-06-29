@@ -32,7 +32,7 @@
         <Label Content="密码：" HorizontalAlignment="Left" Margin="156,151,0,0" VerticalAlignment="Top" FontSize="15"/>
 
         <Button Content="登录" HorizontalAlignment="Left" Margin="165,230,0,0" VerticalAlignment="Top" Width="75" Height="30" Background="LightBlue" Click="SignIn_Click"/>
-        <Button Content="返回" HorizontalAlignment="Left" Margin="350,230,0,0" VerticalAlignment="Top" Width="75" Height="30" Background="LightBlue"/>
+        <Button Content="注册" HorizontalAlignment="Left" Margin="350,230,0,0" VerticalAlignment="Top" Width="75" Height="30" Background="LightBlue" Click="Button_Click"/>
         <PasswordBox Name="PassWord" HorizontalAlignment="Left" Margin="225,152,0,0" VerticalAlignment="Top" Width="200" Height="28" VerticalContentAlignment="Center"/>
         <TextBlock HorizontalAlignment="Left" Margin="220,30,0,0" TextWrapping="Wrap" Text="欢迎！祝您使用愉快" VerticalAlignment="Top" Width="185" Height="35" FontSize="20" />
     </Grid>

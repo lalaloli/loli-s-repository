@@ -23,11 +23,13 @@ namespace myPro
     /// </summary>
     public partial class ReStoreWindow : Window
     {
-        public ReStoreWindow()
+        public List<StoreGoods> StoreGoodss;
+        public ReStoreWindow( List<StoreGoods> Goods_s)
         {
+            StoreGoodss = Goods_s;
             InitializeComponent();
         }
-        BitmapImage bitmap;
+        BitmapImage bitmap = null;
         private void BtnAddPic_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -59,13 +61,61 @@ namespace myPro
                 String num = GNumber.Text.ToString();
                 String name = GoodsName.Text.ToString();
                 int count = Convert.ToInt32(GoodsCount.Text);
-
-                my.AddGood(conn, bitmap, name, num, count);
+                int scount = Convert.ToInt32(StorageGoodsCount.Text);
+                my.AddGood(conn, bitmap, name, num, count,scount);
                 my.ConnClose(conn);
+                this.Close();
             }
 
         }
 
+        private void Change_Click(object sender, RoutedEventArgs e)
+        {
+            if(CB.Content.ToString() == "修改")
+            {
 
+                bool a = true;
+                int n = 0;
+                for(int i =0;i < StoreGoodss.Count(); i++)
+                {
+                    if(StoreGoodss[i].num== GNumber.Text)
+                    {
+
+                        a = false;
+                        n = i;
+                    }
+                }
+
+                if (a)
+                {
+                    MessageBox.Show("此编号货物不存在！");
+                }
+                else
+                {
+                    GoodsName.Text = StoreGoodss[n].Name.Split(':')[2];
+                    GoodsPic.Source = StoreGoodss[n].Img;
+                    GNumber.Text = StoreGoodss[n].num;
+                    GoodsCount.Text = StoreGoodss[n].count.ToString();
+                    StorageGoodsCount.Text = StoreGoodss[n].storagecount.ToString();
+                    if (bitmap == null)
+                    {
+                        bitmap = StoreGoodss[n].Img;
+                    }
+                    CB.Content = "保存";
+                }
+           
+            }
+            else
+            {
+                MySql my = new MySql();
+                SqlConnection conn = my.GetConn();
+
+
+                my.UpdateGoods(conn, bitmap, GoodsName.Text, GNumber.Text,Convert.ToInt32(GoodsCount.Text),Convert.ToInt32( StorageGoodsCount.Text));
+
+                my.ConnClose(conn);
+                this.Close();
+            }
+        }
     }
 }
