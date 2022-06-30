@@ -1,0 +1,15 @@
+C:\Users\machenike\Desktop\myPro\ChatServers\bin\Debug\net6.0\ChatServers.exe
+C:\Users\machenike\Desktop\myPro\ChatServers\bin\Debug\net6.0\ChatServers.deps.json
+C:\Users\machenike\Desktop\myPro\ChatServers\bin\Debug\net6.0\ChatServers.runtimeconfig.json
+C:\Users\machenike\Desktop\myPro\ChatServers\bin\Debug\net6.0\ChatServers.dll
+C:\Users\machenike\Desktop\myPro\ChatServers\bin\Debug\net6.0\ChatServers.pdb
+C:\Users\machenike\Desktop\myPro\ChatServers\obj\Debug\net6.0\ChatServers.csproj.AssemblyReference.cache
+C:\Users\machenike\Desktop\myPro\ChatServers\obj\Debug\net6.0\ChatServers.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\machenike\Desktop\myPro\ChatServers\obj\Debug\net6.0\ChatServers.AssemblyInfoInputs.cache
+C:\Users\machenike\Desktop\myPro\ChatServers\obj\Debug\net6.0\ChatServers.AssemblyInfo.cs
+C:\Users\machenike\Desktop\myPro\ChatServers\obj\Debug\net6.0\ChatServers.csproj.CoreCompileInputs.cache
+C:\Users\machenike\Desktop\myPro\ChatServers\obj\Debug\net6.0\ChatServers.dll
+C:\Users\machenike\Desktop\myPro\ChatServers\obj\Debug\net6.0\refint\ChatServers.dll
+C:\Users\machenike\Desktop\myPro\ChatServers\obj\Debug\net6.0\ChatServers.pdb
+C:\Users\machenike\Desktop\myPro\ChatServers\obj\Debug\net6.0\ChatServers.genruntimeconfig.cache
+C:\Users\machenike\Desktop\myPro\ChatServers\obj\Debug\net6.0\ref\ChatServers.dll

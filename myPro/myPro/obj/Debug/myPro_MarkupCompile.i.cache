@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\machenike\source\repos\myPro\myPro\obj\Debug\
+C:\Users\machenike\Desktop\myPro\myPro\obj\Debug\
 myPro
 none
 false
 DEBUG;TRACE
-C:\Users\machenike\source\repos\myPro\myPro\App.xaml
-131936773943
+C:\Users\machenike\Desktop\myPro\myPro\App.xaml
+14-1042145042
 
-23724290342
-14434534373
-AddUser.xaml;ChangePassWord.xaml;MainWindow.xaml;ManagerSignIn.xaml;ManagerWindow.xaml;PeopleMessageWindow.xaml;ReStoreWindow.xaml;SignUpWindow.xaml;StorageUSerSignIn.xaml;StorageWindow.xaml;StoreHouseWindow.xaml;StoreUserSignIn.xaml;test.xaml;
+27-1751391773
+14209946504
+AddUser.xaml;ChatClient\ChatClients.xaml;otherFunction\ChangePassWord.xaml;MainWindow.xaml;Manager\ManagerSignIn.xaml;Manager\ManagerWindow.xaml;otherFunction\PeopleMessageWindow.xaml;otherFunction\ReStoreWindow.xaml;otherFunction\SignUpWindow.xaml;Storage\StorageUSerSignIn.xaml;Storage\StorageWindow.xaml;Store\StoreHouseWindow.xaml;Store\StoreUserSignIn.xaml;testopject\test.xaml;
 
-True
+False
 

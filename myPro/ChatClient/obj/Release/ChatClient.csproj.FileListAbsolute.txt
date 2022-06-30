@@ -1,0 +1,17 @@
+C:\Users\machenike\Desktop\myPro\ChatClient\bin\Release\ChatClient.exe.config
+C:\Users\machenike\Desktop\myPro\ChatClient\bin\Release\ChatClient.exe
+C:\Users\machenike\Desktop\myPro\ChatClient\bin\Release\ChatClient.pdb
+C:\Users\machenike\Desktop\myPro\ChatClient\obj\Release\ChatClient.csproj.AssemblyReference.cache
+C:\Users\machenike\Desktop\myPro\ChatClient\obj\Release\ChatClient.csproj.SuggestedBindingRedirects.cache
+C:\Users\machenike\Desktop\myPro\ChatClient\obj\Release\MainWindow.g.cs
+C:\Users\machenike\Desktop\myPro\ChatClient\obj\Release\App.g.cs
+C:\Users\machenike\Desktop\myPro\ChatClient\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\machenike\Desktop\myPro\ChatClient\obj\Release\ChatClient_MarkupCompile.cache
+C:\Users\machenike\Desktop\myPro\ChatClient\obj\Release\ChatClient_MarkupCompile.lref
+C:\Users\machenike\Desktop\myPro\ChatClient\obj\Release\MainWindow.baml
+C:\Users\machenike\Desktop\myPro\ChatClient\obj\Release\ChatClient.g.resources
+C:\Users\machenike\Desktop\myPro\ChatClient\obj\Release\ChatClient.Properties.Resources.resources
+C:\Users\machenike\Desktop\myPro\ChatClient\obj\Release\ChatClient.csproj.GenerateResource.cache
+C:\Users\machenike\Desktop\myPro\ChatClient\obj\Release\ChatClient.csproj.CoreCompileInputs.cache
+C:\Users\machenike\Desktop\myPro\ChatClient\obj\Release\ChatClient.exe
+C:\Users\machenike\Desktop\myPro\ChatClient\obj\Release\ChatClient.pdb

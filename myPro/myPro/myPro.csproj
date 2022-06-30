@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>myPro</RootNamespace>
     <AssemblyName>myPro</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -29,6 +29,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -74,46 +75,59 @@
     <Compile Include="AddUser.xaml.cs">
       <DependentUpon>AddUser.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ChangePassWord.xaml.cs">
+    <Compile Include="ChatClient\ChatClients.xaml.cs">
+      <DependentUpon>ChatClients.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CUser.cs" />
+    <Compile Include="Net\IO\Builder.cs" />
+    <Compile Include="Net\IO\Reader.cs" />
+    <Compile Include="Net\RelayCommand.cs" />
+    <Compile Include="Net\Server.cs" />
+    <Compile Include="otherFunction\ChangePassWord.xaml.cs">
       <DependentUpon>ChangePassWord.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ManagerSignIn.xaml.cs">
+    <Compile Include="Manager\ManagerSignIn.xaml.cs">
       <DependentUpon>ManagerSignIn.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ManagerWindow.xaml.cs">
+    <Compile Include="Manager\ManagerWindow.xaml.cs">
       <DependentUpon>ManagerWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MySql.cs" />
-    <Compile Include="PeopleMessageWindow.xaml.cs">
+    <Compile Include="Class\MySql.cs" />
+    <Compile Include="otherFunction\PeopleMessageWindow.xaml.cs">
       <DependentUpon>PeopleMessageWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pic.cs" />
-    <Compile Include="ReStoreWindow.xaml.cs">
+    <Compile Include="Class\Pic.cs" />
+    <Compile Include="otherFunction\ReStoreWindow.xaml.cs">
       <DependentUpon>ReStoreWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SignUpWindow.xaml.cs">
+    <Compile Include="otherFunction\SignUpWindow.xaml.cs">
       <DependentUpon>SignUpWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StorageUSerSignIn.xaml.cs">
+    <Compile Include="Storage\StorageUSerSignIn.xaml.cs">
       <DependentUpon>StorageUSerSignIn.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StorageWindow.xaml.cs">
+    <Compile Include="Storage\StorageWindow.xaml.cs">
       <DependentUpon>StorageWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StoreHouseWindow.xaml.cs">
+    <Compile Include="Store\StoreHouseWindow.xaml.cs">
       <DependentUpon>StoreHouseWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StoreUserSignIn.xaml.cs">
+    <Compile Include="Store\StoreUserSignIn.xaml.cs">
       <DependentUpon>StoreUserSignIn.xaml</DependentUpon>
     </Compile>
-    <Compile Include="test.xaml.cs">
+    <Compile Include="testopject\test.xaml.cs">
       <DependentUpon>test.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\MainViewWIndow.cs" />
     <Page Include="AddUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ChangePassWord.xaml">
+    <Page Include="ChatClient\ChatClients.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="otherFunction\ChangePassWord.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -129,43 +143,43 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ManagerSignIn.xaml">
+    <Page Include="Manager\ManagerSignIn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ManagerWindow.xaml">
+    <Page Include="Manager\ManagerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PeopleMessageWindow.xaml">
+    <Page Include="otherFunction\PeopleMessageWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ReStoreWindow.xaml">
+    <Page Include="otherFunction\ReStoreWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SignUpWindow.xaml">
+    <Page Include="otherFunction\SignUpWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StorageUSerSignIn.xaml">
+    <Page Include="Storage\StorageUSerSignIn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StorageWindow.xaml">
+    <Page Include="Storage\StorageWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StoreHouseWindow.xaml">
+    <Page Include="Store\StoreHouseWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StoreUserSignIn.xaml">
+    <Page Include="Store\StoreUserSignIn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="test.xaml">
+    <Page Include="testopject\test.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -211,5 +225,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
