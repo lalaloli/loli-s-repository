@@ -45,13 +45,14 @@ namespace myPro
                     CountDown.Change(Timeout.Infinite, Timeout.Infinite);
                     CountDownNum = 60;
                     SendVerCode.Content = "获取验证码";
+                    SendVerCode.IsEnabled = true;
                 }
             }));
         }
 
         private void Send_Click(object sender, RoutedEventArgs e)
         {
-            CountDown.Change(0, 1000);
+
             User user = new User();
                 user.UserMail = Mail.Text;
                 Random random = new Random();
@@ -80,7 +81,9 @@ namespace myPro
                     client.Credentials = new NetworkCredential("779429379@qq.com", "aqtenuawrriibecg");
                     client.Send(mailMessage);
                     MessageBox.Show("发送成功！");
-                }
+                    CountDown.Change(0, 1000);
+                    SendVerCode.IsEnabled = false;
+            }
                 catch (Exception t)
                 {
                     MessageBox.Show(t.Message);
