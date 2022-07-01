@@ -6,30 +6,31 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace myPro.Net.IO
+namespace MyPro.Net.IO
 {
-    internal class Reader : BinaryReader
-    {
 
-        private NetworkStream _ns;
-        public Reader(NetworkStream ns) : base(ns)
+        internal class Reader : BinaryReader
         {
-            _ns = ns;
+
+            private NetworkStream _ns;
+            public Reader(NetworkStream ns) : base(ns)
+            {
+                _ns = ns;
+            }
+
+            public string ReadMeaasge()
+            {
+                byte[] MessageBuffer;
+                var length = ReadInt32();
+                MessageBuffer = new byte[length];
+                _ns.Read(MessageBuffer, 0, length);
+
+                var msg = Encoding.UTF8.GetString(MessageBuffer);
+
+                return msg;
+            }
+
+
         }
-
-        public string ReadMeaasge()
-        {
-            byte[] MessageBuffer;
-            var length = ReadInt32();
-            MessageBuffer = new byte[length];
-            _ns.Read(MessageBuffer, 0, length);
-
-            var msg = Encoding.ASCII.GetString(MessageBuffer);
-
-            return msg;
-        }
-
-
-    }
+    
 }
-

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace myPro.Net.IO
+namespace MyPro.Net.IO
 {
-    class Builder
+    internal class Builder
     {
         MemoryStream ms;
 
@@ -23,10 +23,9 @@ namespace myPro.Net.IO
 
         public void WriteMessage(string msg)
         {
-            var msgLenght = msg.Length;
-            //ms.Write(BitConverter.GetBytes(msgLenght));
-            //ms.Write(Encoding.ASCII.GetBytes(msg));
-            ms.Write(Encoding.ASCII.GetBytes(msg), 0, msgLenght);
+            var msgLenght = Encoding.UTF8.GetBytes(msg).Length;
+            ms.Write(BitConverter.GetBytes(msgLenght));
+            ms.Write(Encoding.UTF8.GetBytes(msg));
         }
 
         public byte[] GetBytes()

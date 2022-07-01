@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 
-namespace myPro
+namespace MyPro.Class
 {
     public class Pic
     {
@@ -18,8 +18,8 @@ namespace myPro
             for (i = 0; i < bitmap.Width; i++)
                 for (j = 0; j < bitmap.Height; j++)
                 {
-                    System.Drawing.Color pixelColor = bitmap.GetPixel(i, j);
-                    System.Drawing.Color newColor = System.Drawing.Color.FromArgb(pixelColor.R, pixelColor.G, pixelColor.B);
+                    Color pixelColor = bitmap.GetPixel(i, j);
+                    Color newColor = Color.FromArgb(pixelColor.R, pixelColor.G, pixelColor.B);
                     bitmapSource.SetPixel(i, j, newColor);
                 }
             MemoryStream ms = new MemoryStream();

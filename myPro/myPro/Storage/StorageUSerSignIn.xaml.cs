@@ -14,14 +14,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace myPro
+namespace MyPro
 {
     /// <summary>
-    /// StorageUSerSignIn.xaml 的交互逻辑
+    /// StorageUserSignIn.xaml 的交互逻辑
     /// </summary>
-    public partial class StorageUSerSignIn : Window
+    public partial class StorageUserSignIn : Window
     {
-        public StorageUSerSignIn()
+        public StorageUserSignIn()
         {
             InitializeComponent();
         }
@@ -33,7 +33,7 @@ namespace myPro
             SqlConnection conn = my.GetConn();
             String Id = ID.Text;
             user = my.FindUser(conn, Id);
-            if("仓库管理员"!=user.UserJob)
+            if ("仓库管理员" != user.UserJob)
             {
                 MessageBox.Show("权限不足！");
             }
@@ -43,7 +43,7 @@ namespace myPro
                 {
                     StorageWindow storeHouseWindow = new StorageWindow(Id);
                     storeHouseWindow.get_userID = Id;
-                    
+
                     storeHouseWindow.Show();
                     this.Close();
                 }
@@ -54,8 +54,8 @@ namespace myPro
 
                 }
             }
-         
-            
+
+
             my.ConnClose(conn);
         }
 
@@ -64,5 +64,6 @@ namespace myPro
             SignUpWindow signUpWindow = new SignUpWindow();
             signUpWindow.Show();
         }
+
     }
 }

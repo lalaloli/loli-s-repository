@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace myPro.Net
+namespace MyPro.Net
 {
     class Server
     {
@@ -75,4 +75,5 @@ namespace myPro.Net
             client.Client.Send(messagePacket.GetBytes());
         }
     }
+
 }

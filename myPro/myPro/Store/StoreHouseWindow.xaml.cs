@@ -15,26 +15,26 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace myPro
+namespace MyPro
 {
     /// <summary>
     /// StoreHouseWindow.xaml 的交互逻辑
     /// </summary>
     /// 
-
-    public class StoreGoods{
+    public class StoreGoods
+    {
         public string Name { get; set; }
         public BitmapImage Img { get; set; }
         public string num { get; set; }
         public string count { get; set; }
         public string storagecount { get; set; }
     }
-
     public partial class StoreHouseWindow : Window
     {
         public string get_userID { get => _get_userID; set => _get_userID = value; }//得到用户使用的ID
         public string pass_num;//传递用户的编号
         private string _get_userID;
+        private User PassUser;
         List<StoreGoods> storeGoodss;
         public StoreHouseWindow(String User_ID)
         {
@@ -51,6 +51,7 @@ namespace myPro
 
             SqlConnection conn1 = my.GetConn();
             user = my.FindUserMessage(conn1, get_userID);
+            PassUser = user;
             userHeadpic.Source = user.Headpic;
             User_Name.Content = user.Name;
             pass_num = user.UserNumber;
@@ -109,7 +110,7 @@ namespace myPro
         private void UserMassge_Click(object sender, RoutedEventArgs e)
         {
             PeopleMessageWindow peopleMessageWindow = new PeopleMessageWindow(pass_num);
-           // peopleMessageWindow.get_userNumber = pass_num;
+            // peopleMessageWindow.get_userNumber = pass_num;
             peopleMessageWindow.Show();
         }
 
@@ -173,6 +174,12 @@ namespace myPro
             rs.AncestorType = typeof(ListBoxItem);
             Binding binding = new Binding("Name") { RelativeSource = rs };
             img.SetBinding(System.Windows.Controls.Image.BindingGroupProperty, binding);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ChatClient chatClient = new ChatClient(PassUser.Name);
+            chatClient.Show();
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using myPro.ChatClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -16,7 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace myPro
+namespace MyPro
 {
     /// <summary>
     /// StorageWindow.xaml 的交互逻辑
@@ -25,6 +24,7 @@ namespace myPro
     {
         public string get_userID { get => _get_userID; set => _get_userID = value; }//得到用户使用的ID
         public string pass_num;//传递用户的编号
+        private User PassUser;
         private string _get_userID;
         public List<StoreGoods> storeGoodss;
         public StorageWindow(String User_ID)
@@ -42,6 +42,7 @@ namespace myPro
 
             SqlConnection conn1 = my.GetConn();
             user = my.FindUserMessage(conn1, get_userID);
+            PassUser = user;
             userHeadpic.Source = user.Headpic;
             User_Name.Content = user.Name;
             pass_num = user.UserNumber;
@@ -153,7 +154,7 @@ namespace myPro
 
         private void Message_Click(object sender, RoutedEventArgs e)
         {
-           ChatClients   chatClients = new ChatClients();
+            ChatClient chatClients = new ChatClient(PassUser.Name);
             chatClients.Show();
         }
     }

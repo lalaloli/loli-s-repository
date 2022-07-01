@@ -13,10 +13,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace myPro
+namespace MyPro
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -49,9 +49,9 @@ namespace myPro
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-              StorageUSerSignIn storageUSerSignIn = new StorageUSerSignIn();
-              storageUSerSignIn.Show();
-              this.Close();
+            StorageUserSignIn storageUSerSignIn = new StorageUserSignIn();
+            storageUSerSignIn.Show();
+            this.Close();
             //test test = new test();
             // test.Show();
             // StoreHouseWindow storeHouseWindow = new StoreHouseWindow();

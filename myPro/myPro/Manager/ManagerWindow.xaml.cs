@@ -14,8 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
-namespace myPro
+namespace MyPro
 {
     /// <summary>
     /// ManagerWindow.xaml 的交互逻辑
@@ -24,6 +23,7 @@ namespace myPro
     {
         public string get_userID { get => _get_userID; set => _get_userID = value; }//得到用户使用的ID
         public string pass_num;//传递用户的编号
+        private User PassUser;
         private string _get_userID;
         public ManagerWindow(String User_ID)
         {
@@ -40,6 +40,7 @@ namespace myPro
 
             SqlConnection conn1 = my.GetConn();
             user = my.FindUserMessage(conn1, User_ID);
+            PassUser = user;
             userHeadpic.Source = user.Headpic;
             User_Name.Content = user.Name;
             pass_num = user.UserNumber;
@@ -50,7 +51,7 @@ namespace myPro
             {
 
                 User nUser = new User();
-                nUser.Name = UserS[i].UserJob+":"+ UserS[i].Name;
+                nUser.Name = UserS[i].UserJob + ":" + UserS[i].Name;
                 nUser.Headpic = UserS[i].Headpic;
                 nUser.UserJob = UserS[i].UserJob;
                 Users.Add(nUser);
@@ -131,6 +132,11 @@ namespace myPro
 
             listbox.ItemsSource = Users;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ChatClient chatClient = new ChatClient(PassUser.Name);
+            chatClient.Show();
+        }
     }
-    
 }

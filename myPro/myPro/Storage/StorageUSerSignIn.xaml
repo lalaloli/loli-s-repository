@@ -1,11 +1,11 @@
-﻿<Window x:Class="myPro.StorageUSerSignIn"
+﻿<Window x:Class="MyPro.StorageUserSignIn"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:myPro"
+        xmlns:local="clr-namespace:MyPro"
         mc:Ignorable="d"
-        Title="StorageUSerSignIn" Height="350" Width="600">
+        Title="StorageUserSignIn" Height="350" Width="600">
     <Grid>
         <TextBox Name="ID" HorizontalAlignment="Left" Height="28" Margin="220,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="205" VerticalContentAlignment="Center">
             <TextBox.Resources>

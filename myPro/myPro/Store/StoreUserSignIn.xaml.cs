@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace myPro
+namespace MyPro
 {
     /// <summary>
     /// StoreUserSignIn.xaml 的交互逻辑

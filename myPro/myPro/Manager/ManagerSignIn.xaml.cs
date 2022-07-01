@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace myPro
+namespace MyPro
 {
     /// <summary>
     /// ManagerSignIn.xaml 的交互逻辑
@@ -24,7 +24,6 @@ namespace myPro
         {
             InitializeComponent();
         }
-
         private void SignIn_Click(object sender, RoutedEventArgs e)
         {
             MySql my = new MySql();
@@ -42,7 +41,7 @@ namespace myPro
                 {
                     ManagerWindow storeHouseWindow = new ManagerWindow(Id);
                     storeHouseWindow.get_userID = Id;
-                   // MessageBox.Show(storeHouseWindow.get_userID + "!");
+                    // MessageBox.Show(storeHouseWindow.get_userID + "!");
                     storeHouseWindow.Show();
                     this.Close();
                 }
@@ -63,5 +62,4 @@ namespace myPro
             signUpWindow.Show();
         }
     }
-    
 }
