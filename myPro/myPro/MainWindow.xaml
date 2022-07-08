@@ -21,6 +21,7 @@
             <Button Content="仓库管理" Margin="100,10,100,20" Background="LightGreen" Foreground="White" FontSize="35" Click="Button_Click_2"/>
         </Border>
         <Label Content="密码修改" HorizontalAlignment="Left" Margin="631,375,0,0" VerticalAlignment="Top" RenderTransformOrigin="1,0.2" MouseDoubleClick="Label_MouseDoubleClick"/>
+        <Label Content="数据库" HorizontalAlignment="Left" Margin="710,375,0,0" VerticalAlignment="Top" MouseDoubleClick="Label2_MouseDoubleClick"/>
 
     </Grid>
 </Window>

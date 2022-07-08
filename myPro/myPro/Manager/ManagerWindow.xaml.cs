@@ -124,7 +124,7 @@ namespace MyPro
 
                 User nUser = new User();
                 nUser.Name = UserS[i].UserJob + ":" + UserS[i].Name;
-                MessageBox.Show(UserS[i].UserJob);
+                //MessageBox.Show(UserS[i].UserJob);
                 nUser.Headpic = UserS[i].Headpic;
                 Users.Add(nUser);
 

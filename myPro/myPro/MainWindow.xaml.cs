@@ -31,6 +31,15 @@ namespace MyPro
             //signUpWindow.Show();
             ChangePassWord changePassWord = new ChangePassWord();
             changePassWord.Show();
+
+        }
+
+        private void Label2_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            MySql mySql = new MySql();
+            mySql.AddDateBasse();
+           
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -52,10 +61,7 @@ namespace MyPro
             StorageUserSignIn storageUSerSignIn = new StorageUserSignIn();
             storageUSerSignIn.Show();
             this.Close();
-            //test test = new test();
-            // test.Show();
-            // StoreHouseWindow storeHouseWindow = new StoreHouseWindow();
-            // storeHouseWindow.Show();
+          
         }
     }
 }

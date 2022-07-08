@@ -29,6 +29,7 @@ namespace MyPro
         public ReStoreWindow(List<StoreGoods> Goods_s)
         {
             StoreGoodss = Goods_s;
+            
             InitializeComponent();
         }
         BitmapImage bitmap = null;
@@ -78,13 +79,16 @@ namespace MyPro
 
                 bool a = true;
                 int n = 0;
+               
                 for (int i = 0; i < StoreGoodss.Count(); i++)
                 {
+                   
                     if (StoreGoodss[i].num == GNumber.Text)
                     {
-
+                       
                         a = false;
                         n = i;
+                        break;
                     }
                 }
 
@@ -94,7 +98,9 @@ namespace MyPro
                 }
                 else
                 {
-                    GoodsName.Text = StoreGoodss[n].Name.Split(':')[2];
+                   
+                    GoodsName.Text = StoreGoodss[n].Name.Split(':')[1];
+                    MessageBox.Show(n.ToString());
                     GoodsPic.Source = StoreGoodss[n].Img;
                     GNumber.Text = StoreGoodss[n].num;
                     GoodsCount.Text = StoreGoodss[n].count.ToString();

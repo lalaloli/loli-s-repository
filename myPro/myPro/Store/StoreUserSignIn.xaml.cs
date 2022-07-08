@@ -42,7 +42,7 @@ namespace MyPro
                 {
                     StoreHouseWindow storeHouseWindow = new StoreHouseWindow(Id);
                     storeHouseWindow.get_userID = Id;
-                    MessageBox.Show(storeHouseWindow.get_userID + "!");
+                 //   MessageBox.Show(storeHouseWindow.get_userID + "!");
                     storeHouseWindow.Show();
                     this.Close();
                 }

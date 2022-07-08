@@ -18,6 +18,7 @@ namespace MyPro
 
         public SqlConnection GetConn()
         {
+
             String SinSql = "Server=.;DataBase=storehouse;User ID=sa;Pwd=123456";
 
             SqlConnection conn = new SqlConnection();
@@ -360,5 +361,94 @@ namespace MyPro
             cmd.Parameters.Add("@Pic", SqlDbType.Image).Value = BP;
             cmd.ExecuteNonQuery();
         }
+  
+        public  void AddDateBasse()
+        {
+            string tsql = "Server=.;Database=master;uid=sa;pwd=123456;";
+            SqlConnection tsqlConnection = new SqlConnection(tsql);
+            if(tsqlConnection.State ==ConnectionState.Open)
+            {
+                tsqlConnection.Close();
+            }
+            tsqlConnection.Open();
+            string sqlSelect = "select * from master.dbo.sysdatabases where name = 'storehouse'";
+            SqlDataAdapter sqlda = new SqlDataAdapter(sqlSelect, tsqlConnection);
+            DataTable dataTable = new DataTable();
+            sqlda.Fill(dataTable);
+            if (dataTable.Rows.Count > 0 && dataTable != null)
+            {
+                MessageBox.Show("数据库已存在！");
+            }
+            else
+            {
+                String sql = "CREATE DATABASE storehouse";
+                SqlConnection sqlConnection = new SqlConnection(tsql);
+                SqlCommand command = new SqlCommand(sql, sqlConnection);
+                command.Connection.Open();
+                command.Connection.ChangeDatabase("master");
+                try
+                {
+                    command.ExecuteNonQuery();
+                }
+                finally
+                {
+                    tsqlConnection.Close();
+                    sqlConnection.Close();
+                    command.Connection.Close();
+                }
+                string sql1 = "Server=.;Database=storehouse;uid=sa;pwd=123456;";
+
+                SqlConnection sqlConnection1 = new SqlConnection(sql1);
+
+                sqlConnection1.Open();
+                string addtable1 = "CREATE TABLE myuser (" +
+                    "[name] [nvarchar](MAX) NULL," +
+                    "[number] [nchar](24) NOT NULL," +
+                    "[mail] [nvarchar](MAX) NOT NULL," +
+                    "[pword] [nvarchar](MAX) NOT NULL," +
+                    "[job] [nvarchar](MAX) NULL," +
+                    "[headpic] [varbinary](MAX) NULL," +
+                    "[tel] [nchar](24) NULL," +
+                    "[age] [int] NULL," +
+                    "[jobage] [int] NULL,)";
+
+                SqlCommand command1 = new SqlCommand(addtable1, sqlConnection1);
+
+                try
+                {
+                    command1.ExecuteNonQuery();
+                }
+                finally
+                {
+                    sqlConnection1.Close();
+                    command1.Connection.Close();
+                }
+
+                MessageBox.Show("s");
+                SqlConnection sqlConnection2 = new SqlConnection(sql1);
+                sqlConnection2.Open();
+                string addtable2 = "CREATE TABLE goosd (" +
+                    "[name] [nvarchar](MAX) NULL," +
+                    "[num] [nchar](24) NOT NULL," +
+                    "[picture] [varbinary](MAX) NULL," +
+                    "[count] [int] NULL," +
+                    "[Storagecount] [int] NULL,)";
+                SqlCommand command2 = new SqlCommand(addtable2, sqlConnection2);
+
+                try
+                {
+                    command2.ExecuteNonQuery();
+                }
+                finally
+                {
+                    sqlConnection2.Close();
+                    command2.Connection.Close();
+                }
+                MessageBox.Show("添加成功！");
+            }
+
+
+        }
+    
     }
 }
